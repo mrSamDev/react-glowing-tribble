@@ -19,7 +19,7 @@ const SnackBar = (props) => {
     }
     props.toggleSnackBar({ open: false });
   };
-
+  console.log("snackbar: ", snackbar);
   return (
     <Snackbar autoHideDuration={5000} style={{ zIndex: 3010 }} anchorOrigin={{ vertical: "bottom", horizontal: "left" }} open={snackbar.open} onClose={handleClose}>
       <Alert onClose={handleClose} severity={snackbar.variant}>

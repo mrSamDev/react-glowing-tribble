@@ -54,7 +54,6 @@ const Auth = () => {
           </Grid>
         </Paper>
       </Container>
-
       <SnackBar />
     </Page>
   );

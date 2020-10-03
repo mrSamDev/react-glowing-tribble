@@ -1,7 +1,7 @@
 import service from "./serviceLayer";
 import AuthTypes from "./actionTypes";
 import { toggleSnackBar } from "../common/action";
-import { users } from "./dummyData";
+import { users } from "../dummyData";
 import { messages, snackBarVariants } from "../contants";
 
 const setAuth = (data) => ({ type: AuthTypes.SET_IS_USER_AUTHENTICATED, data });
@@ -34,7 +34,13 @@ const checkUserToken = () => (dispatch) => {
   }
 };
 
+const onLogout = () => (dispatch) => {
+  service.removeToken();
+  dispatch(setAuth(false));
+};
+
 export default {
   onLogin,
   checkUserToken,
+  onLogout,
 };
