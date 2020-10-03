@@ -8,12 +8,14 @@ const setAuth = (data) => ({ type: AuthTypes.SET_IS_USER_AUTHENTICATED, data });
 
 const onAuth = ({ email, password }, isSignUp) => async (dispatch) => {
   try {
+    const user = users.find((user) => user.email === email);
     if (isSignUp) {
+      if (user) return dispatch(toggleSnackBar({ open: true, message: messages.USER_EXISTS, variant: snackBarVariants.error }));
+
       users.push({ email, password });
       return dispatch(toggleSnackBar({ open: true, message: messages.REGISTER_SUCCESS, variant: snackBarVariants.success }));
     }
 
-    const user = users.find((user) => user.email === email);
     if (!user) return dispatch(toggleSnackBar({ open: true, message: messages.NOT_FOUND, variant: snackBarVariants.error }));
     const doesUserMatch = user.password === password;
     if (doesUserMatch) {

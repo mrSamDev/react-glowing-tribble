@@ -4,6 +4,7 @@ export const messages = {
   LOGIN_SUCCESS: "Login  has been successfull",
   REGISTER_SUCCESS: "Register has been successfull",
   LOGOUT: "Logout has been successfull",
+  USER_EXISTS: "User already exists",
 };
 
 export const snackBarVariants = {
