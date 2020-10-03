@@ -5,8 +5,8 @@ import Auth from "./components/page/Auth";
 import GlobalStyles from "./GlobalStyles";
 import * as authSelectors from "./store/auth/selectors";
 import authActions from "./store/auth/action";
-import { connect } from "react-redux";
 import SnackBar from "./components/molecules/SnackBar";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
   isUserAuthenticated: authSelectors.isUserAuthenticated.call(state.auth),
