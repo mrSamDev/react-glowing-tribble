@@ -1,12 +1,13 @@
-import React, { forwardRef } from 'react';
-import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
+import React, { forwardRef } from "react";
+import { Helmet } from "react-helmet";
+import PropTypes from "prop-types";
+import config from "../../store/config";
 
-const Page = forwardRef(({ children, title = '', ...rest }, ref) => {
+const Page = forwardRef(({ children, title = "", ...rest }, ref) => {
   return (
     <div ref={ref} {...rest}>
       <Helmet>
-        <title>{title}</title>
+        <title>{`${title} | ${config.appName}`}</title>
       </Helmet>
       {children}
     </div>
@@ -15,7 +16,7 @@ const Page = forwardRef(({ children, title = '', ...rest }, ref) => {
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 export default Page;

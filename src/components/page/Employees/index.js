@@ -25,7 +25,7 @@ const EmployeeList = (props) => {
   return (
     <React.Fragment>
       <Header />
-      <Page title="Employees | Goodbits">
+      <Page title="Employees">
         <Container fluid>
           <Grid style={{ marginBottom: 10, padding: 4 }}>
             <SearchBox onSearch={handleSearch} removeSearch={handleSearch} />

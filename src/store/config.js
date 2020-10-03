@@ -5,7 +5,7 @@ const production = "production";
 const env = process.env.NODE_ENV || development;
 
 let config = {
-  appName: "reactGoodBits",
+  appName: "App Name",
 };
 
 switch (env) {

@@ -34,7 +34,7 @@ const Auth = () => {
 
   const Icon = isResetPassword ? LockOpen : isSignUp ? HowToReg : Lock;
 
-  const pageTitle = `${isSignUp ? "Register" : "Login"} | Goodbits`;
+  const pageTitle = `${isSignUp ? "Register" : "Login"}`;
 
   return (
     <Page title={pageTitle}>
