@@ -6,8 +6,13 @@ import { messages, snackBarVariants } from "../contants";
 
 const setAuth = (data) => ({ type: AuthTypes.SET_IS_USER_AUTHENTICATED, data });
 
-const onLogin = ({ email, password }) => (dispatch) => {
+const onAuth = ({ email, password }, isSignUp) => async (dispatch) => {
   try {
+    if (isSignUp) {
+      users.push({ email, password });
+      return dispatch(toggleSnackBar({ open: true, message: messages.REGISTER_SUCCESS, variant: snackBarVariants.success }));
+    }
+
     const user = users.find((user) => user.email === email);
     if (!user) return dispatch(toggleSnackBar({ open: true, message: messages.NOT_FOUND, variant: snackBarVariants.error }));
     const doesUserMatch = user.password === password;
@@ -37,10 +42,11 @@ const checkUserToken = () => (dispatch) => {
 const onLogout = () => (dispatch) => {
   service.removeToken();
   dispatch(setAuth(false));
+  dispatch(toggleSnackBar({ open: true, message: messages.LOGOUT, variant: snackBarVariants.success }));
 };
 
 export default {
-  onLogin,
+  onAuth,
   checkUserToken,
   onLogout,
 };

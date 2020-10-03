@@ -6,6 +6,7 @@ import GlobalStyles from "./GlobalStyles";
 import * as authSelectors from "./store/auth/selectors";
 import authActions from "./store/auth/action";
 import { connect } from "react-redux";
+import SnackBar from "./components/molecules/SnackBar";
 
 const mapStateToProps = (state) => ({
   isUserAuthenticated: authSelectors.isUserAuthenticated.call(state.auth),
@@ -29,6 +30,7 @@ const withAuthenticator = (ComposedComponent) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         {Component}
+        <SnackBar />
       </ThemeProvider>
     );
   };

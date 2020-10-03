@@ -12,7 +12,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useHistory, useLocation } from "react-router-dom";
 import LoginRegister from "./LoginRegister";
 import Reset from "./ResetPassword";
-import SnackBar from "../../molecules/SnackBar";
 
 const Auth = () => {
   const [isSignUp, setSignUp] = React.useState(false);
@@ -31,7 +30,7 @@ const Auth = () => {
 
   const toggleSignUp = () => setSignUp((prev) => !prev);
 
-  const { register, handleSubmit, errors } = useForm({});
+  const { register, handleSubmit, errors, reset } = useForm({});
 
   const Icon = isResetPassword ? LockOpen : isSignUp ? HowToReg : Lock;
 
@@ -47,14 +46,13 @@ const Auth = () => {
               <Icon style={{ width: "auto", height: 100, color: "#fff" }} />
             </Grid>
             <Grid item md={6} xs={12} style={{ padding: "2rem", display: "flex", alignItems: "center" }}>
-              <FormProvider handleSubmit={handleSubmit} errors={errors} register={register}>
+              <FormProvider reset={reset} handleSubmit={handleSubmit} errors={errors} register={register}>
                 {isResetPassword ? <Reset /> : <LoginRegister toggleSignUp={toggleSignUp} isSignUp={isSignUp} />}
               </FormProvider>
             </Grid>
           </Grid>
         </Paper>
       </Container>
-      <SnackBar />
     </Page>
   );
 };

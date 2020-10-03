@@ -10,7 +10,6 @@ const filterEmployeeTables = (name = null, value = null) => (dispatch, getState)
     const state = getState().employee;
 
     const filterValues = { ...selectors.getEmployeeFilerValues.call(state), ...(!name ? {} : { [name]: value }) };
-    console.log("filterValues: ", filterValues);
 
     let list = JSON.parse(JSON.stringify(employeeList));
 
@@ -39,7 +38,6 @@ const onSearchEmployeeTable = (value) => (dispatch, getState) => {
     if (!Boolean(value)) return dispatch(filterEmployeeTables());
 
     const searchedList = matchSorter(list, value, { keys: ["name", "position", "state"] });
-    console.log("searchedList: ", searchedList);
 
     dispatch({ type: actionTypes.SET_EMPLOYEE_LIST, payload: searchedList });
   } catch (error) {

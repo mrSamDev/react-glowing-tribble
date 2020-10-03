@@ -12,8 +12,14 @@ import { useDispatch } from "react-redux";
 export default ({ isSignUp, toggleSignUp }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
-  const { handleSubmit, register, errors } = useFormContext();
-  const onSubmit = (data) => dispatch(actions.onLogin(data));
+  const { handleSubmit, register, errors, reset } = useFormContext();
+
+  const onThen = () => {
+    if (isSignUp) toggleSignUp();
+    reset();
+  };
+
+  const onSubmit = (data) => dispatch(actions.onAuth(data, isSignUp)).then(onThen);
   return (
     <React.Fragment>
       <form onSubmit={handleSubmit(onSubmit)}>
