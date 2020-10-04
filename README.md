@@ -15,7 +15,8 @@ To start the app:
 > 4. **npm start**
 
 Existing user:
-
+```
 > 1. User
-   -  email -> admin@admin.com
-   - passord -> admin
+     email -> admin@admin.com
+     passord -> admin
+```
