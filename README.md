@@ -16,5 +16,6 @@ To start the app:
 
 Existing user:
 
-> email -> admin@admin.com
-> passord -> admin
+> 1. User
+   -  email -> admin@admin.com
+   - passord -> admin
