@@ -14,7 +14,7 @@ const PasswordField = (props) => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const { disabled, inputRef } = props;
+  const { inputRef } = props;
   return (
     <TextField
       error={props.error}

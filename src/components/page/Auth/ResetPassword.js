@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import PasswordField from "../../molecules/PasswordField";
 import { useTheme } from "@material-ui/core/styles";
 import { useFormContext } from "react-hook-form";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 export default ({}) => {
   const theme = useTheme();
   const history = useHistory();
