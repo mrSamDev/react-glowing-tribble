@@ -1,4 +1,4 @@
-# node-oauth2-proof-of-concept
+# Auth > react-app
 
 ```
 Pre requisites
